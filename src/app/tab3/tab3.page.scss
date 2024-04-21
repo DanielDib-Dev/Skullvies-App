@@ -1,0 +1,43 @@
+#user-pesquisa{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#user-pesquisa svg{
+    width: 29px;
+    height: 29px;
+    flex-shrink: 0;
+    fill: #E8E8E8;
+    margin: 5vw 5vw 0 0;
+}
+
+#user-pesquisa p{
+    text-align: right; 
+    color: white; 
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+}
+
+#user{
+    margin: 5vw 0 0 5vw;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    gap: 10px;
+    display: inline-flex;
+}
+
+img{
+    width: 46px;
+    height: 46px;
+    background: black;
+    border-radius: 9999px;
+    border: 2px #D32D2D solid;
+}
+
+#configs{
+    display: flex;
+    flex-direction: column;
+}
