@@ -1,0 +1,7 @@
+{
+  "name": "Skullvies",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
