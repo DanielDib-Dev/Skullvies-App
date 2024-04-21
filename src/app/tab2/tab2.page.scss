@@ -1,0 +1,70 @@
+#pesquisa{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+}
+
+#pesquisa svg{
+    width: 29px;
+    height: 29px;
+    flex-shrink: 0;
+    fill: #E8E8E8;
+    margin: 5vw 5vw 0 0;
+}
+
+h1{
+    color: #FFF;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.card{
+    margin: 0;
+    --background: transparent;
+    box-shadow: none;
+    width: 29vw;
+    height: 100%;
+}
+
+#destaques{
+    display: flex;
+    flex-direction: column;
+    margin: 0 3.666vw 0;
+    gap: 1.5vh;
+}
+
+.destaques-card{
+    display: flex;
+    justify-content: center;
+    gap: 3vw;
+    height: 23vh;
+}
+
+.card-title{
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    line-height: normal;
+
+}
+
+.card-subtitle{
+    color: #828282;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+.card-header{
+    padding: 0;
+}
+
+.card-img{
+    width: 100%;
+    height: 75%;
+    border-radius: 24px;
+    object-fit: cover;
+    object-position: center;
+}
