@@ -8,12 +8,12 @@
     width: 29px;
     height: 29px;
     flex-shrink: 0;
-    fill: #E8E8E8;
+    fill: var(--ion-text);
     margin: 5vw 5vw 0 0;
 }
 
 h1{
-    color: #FFF;
+    color: var(--ion-text);
     text-align: center;
     font-size: 32px;
     font-weight: 700;
@@ -42,6 +42,7 @@ h1{
 }
 
 .card-title{
+    color: var(--ion-text);
     font-size: 14px;
     font-weight: 700;
     text-align: center;
@@ -50,7 +51,7 @@ h1{
 }
 
 .card-subtitle{
-    color: #828282;
+    color: var(--ion-subtitle);
     font-size: 12px;
     font-weight: 400;
     line-height: normal;

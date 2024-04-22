@@ -8,13 +8,13 @@
     width: 29px;
     height: 29px;
     flex-shrink: 0;
-    fill: #E8E8E8;
+    fill: var(--ion-text) !important;
     margin: 5vw 5vw 0 0;
 }
 
 #user-pesquisa p{
     text-align: right; 
-    color: white; 
+    color: var(--ion-text) !important; 
     font-size: 20px;
     font-weight: 700;
     margin: 0;
@@ -54,6 +54,11 @@
 
 #configs div p{
     margin: 0;
+    color: var(--ion-text);
+}
+
+#configs div svg{
+    fill: var(--ion-text);
 }
 
 #configs div ion-toggle{

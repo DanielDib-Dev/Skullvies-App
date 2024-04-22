@@ -8,7 +8,7 @@
     width: 29px;
     height: 29px;
     flex-shrink: 0;
-    fill: #E8E8E8;
+    fill: var(--ion-text);
     margin: 5vw 5vw 0 0;
 }
 
@@ -20,11 +20,11 @@
     box-shadow: none;
     height: 30%;
     border-radius: 24px;
-    background: linear-gradient(180deg, rgba(26, 26, 29, 0.00) 53%, rgba(26, 26, 29, 0.90) 100%), url(https://ionicframework.com/docs/img/demos/card-media.png) lightgray 50% / cover no-repeat;
+    background: var(--ion-cardtop-fade);
 }
 
 .card-top ion-card-title, ion-card-subtitle{
-    color: #d8d8d8;
+    color: var(--ion-text);
 }
 
 .card{
@@ -36,6 +36,7 @@
 }
 
 .title-p{
+    color: var(--ion-text);
     text-align: center;
     font-size: 2.5vh;
     margin: 0 0 1vh;
@@ -56,6 +57,7 @@
 }
 
 .card-title{
+    color: var(--ion-text);
     font-size: 14px;
     font-weight: 700;
     text-align: center;
@@ -64,7 +66,7 @@
 }
 
 .card-subtitle{
-    color: #828282;
+    color: var(--ion-subtitle);
     font-size: 12px;
     font-weight: 400;
     line-height: normal;

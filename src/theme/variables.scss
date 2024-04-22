@@ -1,9 +1,15 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
-:root {
-    --ion-background-color: #1A1A1D !important;
-    --ion-toolbar-background: #1A1A1D !important;
-    --ion-tab-bar-background: #0F0F11 !important;
+body{
+    --ion-background-color: #1A1A1D;
+    --ion-toolbar-background: #1A1A1D;
+    --ion-tab-bar-background: #0F0F11;
+	--ion-text: #d8d8d8;
+	--ion-subtitle: #828282;
+	--ion-cardtop-fade: linear-gradient(180deg, rgba(26, 26, 29, 0) 53%, rgba(26, 26, 29, 0.90) 100%), url(https://ionicframework.com/docs/img/demos/card-media.png) lightgray 50% / cover no-repeat;
+	--ion-tab-bar-border-color: transparent !important;
+	--ion-tab-bar-color: var(--ion-text);
+
 	--ion-color-primary: #D32D2D;
 	--ion-color-primary-rgb: 211,45,45;
 	--ion-color-primary-contrast: #ffffff;
@@ -67,4 +73,13 @@
 	--ion-color-dark-shade: #292929;
 	--ion-color-dark-tint: #444444;
 
+}
+
+body.dark {
+    --ion-background-color: #EEEEEE !important;
+    --ion-toolbar-background: #EEEEEE !important;
+    --ion-tab-bar-background: #D9D9D9 !important;
+	--ion-text: #000000 !important;
+	--ion-subtitle: #000000 !important;
+	--ion-cardtop-fade: linear-gradient(180deg, rgba(238, 238, 238, 0.00) 57.5%, rgba(238, 238, 238, 0.25) 74.5%), url(https://ionicframework.com/docs/img/demos/card-media.png) lightgray 50% / cover no-repeat;
 }
