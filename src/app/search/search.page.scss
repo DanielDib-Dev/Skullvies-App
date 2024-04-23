@@ -1,0 +1,29 @@
+#pesquisa{
+    --border-radius: 24px;
+    --background: var(--ion-tab-bar-background);
+    --box-shadow: 0px 0px 0px 1px rgba(255,0,0,1);
+    --icon-color: var(--ion-pesquisa);
+    --placeholder-color: var(--ion-pesquisa);
+    --cancel-button-color: var(--ion-pesquisa);
+    --color: var(--ion-text);
+    padding: 5px;
+    width: 90%;
+    color: var(--ion-text);
+}
+
+#sem-resultado{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+}
+
+#sem-resultado ion-icon{
+ font-size: 100px;
+}
+
+#sem-resultado p{
+    margin: 0 0 10px 0;
+}
+

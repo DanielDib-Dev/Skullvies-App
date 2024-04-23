@@ -1,7 +1,15 @@
 <ion-header>
   <ion-toolbar>
+    <ion-title>Pesquisar filme</ion-title>
     <ion-buttons slot="start">
       <ion-back-button color="tertiary"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-content [fullscreen]="true">
+  <ion-searchbar class="ion-margin" id="pesquisa" search-icon="search" placeholder="Digite o nome do filme"></ion-searchbar>
+  <div id="sem-resultado">
+    <p>Sem resultados...</p>
+    <ion-icon name="sad-outline"></ion-icon>
+  </div>
+</ion-content>
