@@ -21,16 +21,15 @@
 }
 
 #user{
-    margin: 5vw 0 0 5vw;
+    margin: 5vw 0 20px 5vw;
     width: 100%;
     height: 100%;
     align-items: center;
-    gap: 10px;
     display: inline-flex;
-    margin-bottom: 30px;
 }
 
 #user img{
+    margin-right: 10px;
     width: 46px;
     height: 46px;
     background: black;
@@ -38,6 +37,15 @@
     border: 2px #D32D2D solid;
 }
 
+ion-item *{
+    margin: 3px;
+}
+
+ion-icon{
+    color: var(--ion-text);
+}
+
+/*
 #configs{
     display: flex;
     flex-direction: column;
@@ -66,3 +74,4 @@
     transform: scale(0.8);
     height: 23px;
 }
+*/
