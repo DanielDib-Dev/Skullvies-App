@@ -29,12 +29,12 @@ body{
 	--ion-color-secondary-shade: #ba2828;
 	--ion-color-secondary-tint: #d74242;
 
-	--ion-color-tertiary: #D32D2D;
-	--ion-color-tertiary-rgb: 211,45,45;
-	--ion-color-tertiary-contrast: #ffffff;
-	--ion-color-tertiary-contrast-rgb: 255,255,255;
-	--ion-color-tertiary-shade: #ba2828;
-	--ion-color-tertiary-tint: #d74242;
+	--ion-color-tertiary: #EEEEEE;
+	--ion-color-tertiary-rgb: 238,238,238;
+	--ion-color-tertiary-contrast: #000000;
+	--ion-color-tertiary-contrast-rgb: 0,0,0;
+	--ion-color-tertiary-shade: #d1d1d1;
+	--ion-color-tertiary-tint: #f0f0f0;
 
 	--ion-color-success: #2dd55b;
 	--ion-color-success-rgb: 45,213,91;
@@ -91,6 +91,13 @@ body.dark {
 	--ion-text-color: #000000 !important;
 	--ion-subtitle: #000000 !important;
 	--ion-cardtop-fade: linear-gradient(180deg, rgba(238, 238, 238, 0.00) 57.5%, rgba(238, 238, 238, 0.25) 74.5%), url(https://ionicframework.com/docs/img/demos/card-media.png) lightgray 50% / cover no-repeat;
+
+	--ion-color-tertiary: #1A1A1D;
+	--ion-color-tertiary-rgb: 26,26,29;
+	--ion-color-tertiary-contrast: #ffffff;
+	--ion-color-tertiary-contrast-rgb: 255,255,255;
+	--ion-color-tertiary-shade: #17171a;
+	--ion-color-tertiary-tint: #313134;
 }
 
 	/*
