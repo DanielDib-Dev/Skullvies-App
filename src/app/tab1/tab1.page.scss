@@ -12,15 +12,28 @@
     margin: 5vw 5vw 0 0;
 }
 
-.card-top{
-    display: flex;
+#pesquisa img{
+    width: 29px;
+    height: 29px;
+    flex-shrink: 0;
+    margin: 5vw 0 0 5vw;
+}
+
+#card-top-router{
+    height: 27vh;
     margin: 0 3.666vw 3vw;
+}
+
+.card-top{
+    margin: 0;
+    display: flex;
     flex-direction: column;
     justify-content: flex-end;
     box-shadow: none;
-    height: 30%;
+    height: 100%;
+    width: 100%;
     border-radius: 24px;
-    background: var(--ion-cardtop-fade);
+    background: linear-gradient(0deg, var(--ion-background-color) 0%, rgba(0,0,0,0) 60%), url(https://ionicframework.com/docs/img/demos/card-media.png) lightgray 50% / cover no-repeat;
 }
 
 .card-top ion-card-title, ion-card-subtitle{
