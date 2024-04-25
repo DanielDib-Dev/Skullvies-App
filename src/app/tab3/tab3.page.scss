@@ -9,7 +9,7 @@
     height: 29px;
     flex-shrink: 0;
     fill: var(--ion-text) !important;
-    margin: 5vw 5vw 0 0;
+    margin: 30px 30px 0 0;
 }
 
 #user-pesquisa p{
@@ -21,7 +21,7 @@
 }
 
 #user{
-    margin: 5vw 0 20px 5vw;
+    margin: 30px 0 20px 30px;
     width: 100%;
     height: 100%;
     align-items: center;
@@ -35,6 +35,10 @@
     background: black;
     border-radius: 9999px;
     border: 2px #D32D2D solid;
+}
+
+ion-item{
+    --transition: none;
 }
 
 ion-item *{

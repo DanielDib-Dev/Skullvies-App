@@ -2,8 +2,6 @@
 // http://ionicframework.com/docs/theming/
 body{
     --ion-background-color: #1A1A1D;
-	--ion-background-color-rgba: ;
-	--transition: none !important;
 	--background: #1A1A1D;
 	--ion-item-background: #1A1A1D;
     --ion-toolbar-background: #1A1A1D;
@@ -15,6 +13,7 @@ body{
 	--ion-tab-bar-border-color: transparent !important;
 	--ion-tab-bar-color: var(--ion-text);
 	--ion-pesquisa: #6c6c6c;
+	--logo-light-mode: filter: none;
 
 	--ion-color-primary: #D32D2D;
 	--ion-color-primary-rgb: 211,45,45;
@@ -93,6 +92,7 @@ body.dark {
 	--ion-subtitle: #000000 !important;
 	--ion-cardtop-fade: linear-gradient(180deg, rgba(238, 238, 238, 0.00) 57.5%, rgba(238, 238, 238, 0.25) 74.5%), url(https://ionicframework.com/docs/img/demos/card-media.png) lightgray 50% / cover no-repeat;
 	--ion-pesquisa: #000000;
+	--logo-light-mode: filter: brightness(0);
 
 	--ion-color-tertiary: #1A1A1D;
 	--ion-color-tertiary-rgb: 26,26,29;
@@ -119,6 +119,7 @@ body.dark {
 		--ion-subtitle: #000000 !important;
 		--ion-cardtop-fade: linear-gradient(180deg, rgba(238, 238, 238, 0.00) 57.5%, rgba(238, 238, 238, 0.25) 74.5%), url(https://ionicframework.com/docs/img/demos/card-media.png) lightgray 50% / cover no-repeat;
 		--ion-pesquisa: #000000;
+		--logo-light-mode: filter: brightness(0);
 	
 		--ion-color-tertiary: #1A1A1D;
 		--ion-color-tertiary-rgb: 26,26,29;
