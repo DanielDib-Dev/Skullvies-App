@@ -1,0 +1,23 @@
+#logo{
+    width: 100%;
+    text-align: center;
+}
+
+#logo img{
+    width: 40vw;
+    height: 40vw;
+}
+
+ion-input{
+    --background: var(--ion-tab-bar-background);
+    width: 90%;
+    --border-color: var(--ion-color-primary) !important;
+    --border-width: 2px;
+}
+
+#inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

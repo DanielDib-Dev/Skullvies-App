@@ -18,7 +18,7 @@
       <p>Modo claro</p>
       <ion-toggle [checked]="darkMode" (ionChange)="toggleDarkMode()"></ion-toggle>
     </ion-item>
-    <ion-item>
+    <ion-item [routerLink]="['/home']">
       <ion-icon name="log-out-outline"></ion-icon>
       <p>Sair da conta</p> 
     </ion-item>

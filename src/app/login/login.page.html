@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true">
+  <div id="logo">
+    <img alt="logo skullvies" src="../../assets/logo.png">
+  </div>
+  <h3>Entre com sua conta</h3>
+  <div id="inputs">
+    <ion-input
+      id="email-input" 
+      label="E-mail" 
+      labelPlacement="floating" 
+      placeholder="Digite seu e-mail" 
+      errorText="E-mail inválido"
+      inputmode="email"
+      shape="round"
+      fill="outline">
+    </ion-input>
+    <ion-input
+      id="senha-input" 
+      type="password"
+      label="Senha" 
+      labelPlacement="floating" 
+      placeholder="Digite sua senha" 
+      errorText="Senha inválida"
+      inputmode="password"
+      shape="round"
+      fill="outline">
+      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+    </ion-input>
+  </div>
+</ion-content>
