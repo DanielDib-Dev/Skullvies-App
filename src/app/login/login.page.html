@@ -1,30 +1,40 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="tertiary"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true">
-  <div id="logo">
-    <img alt="logo skullvies" src="../../assets/logo.png">
-  </div>
-  <h3>Entre com sua conta</h3>
-  <div id="inputs">
-    <ion-input
-      id="email-input" 
-      label="E-mail" 
-      labelPlacement="floating" 
-      placeholder="Digite seu e-mail" 
-      errorText="E-mail inválido"
-      inputmode="email"
-      shape="round"
-      fill="outline">
-    </ion-input>
-    <ion-input
-      id="senha-input" 
-      type="password"
-      label="Senha" 
-      labelPlacement="floating" 
-      placeholder="Digite sua senha" 
-      errorText="Senha inválida"
-      inputmode="password"
-      shape="round"
-      fill="outline">
-      <ion-input-password-toggle slot="end"></ion-input-password-toggle>
-    </ion-input>
+  <div id="login">
+    <div id="logo">
+      <img alt="logo skullvies" src="../../assets/logo.png">
+    </div>
+    <h3>Entre com sua conta</h3>
+    <div id="inputs">
+      <ion-input
+        id="email-input" 
+        label="E-mail" 
+        labelPlacement="floating" 
+        placeholder="Digite seu e-mail" 
+        errorText="E-mail inválido"
+        inputmode="email"
+        shape="round"
+        fill="outline">
+      </ion-input>
+      <ion-input
+        id="senha-input" 
+        type="password"
+        label="Senha" 
+        labelPlacement="floating" 
+        placeholder="Digite sua senha" 
+        errorText="Senha inválida"
+        inputmode="password"
+        shape="round"
+        fill="outline">
+      </ion-input>
+      <p id="p-esqueci">Esqueci minha senha</p>
+      <ion-button id="button-entrar" [routerLink]="['/tabs']">Entrar na conta</ion-button>
+    </div>
   </div>
 </ion-content>

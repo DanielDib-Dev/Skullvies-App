@@ -1,13 +1,64 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>cadastro</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="tertiary"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cadastro</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div id="login">
+    <div id="logo">
+      <img alt="logo skullvies" src="../../assets/logo.png">
+    </div>
+    <h3>Cadastre-se</h3>
+    <div id="inputs">
+      <ion-input
+        id="nome-input" 
+        label="Nome" 
+        labelPlacement="floating" 
+        placeholder="Digite seu nome" 
+        errorText="Nome inválido"
+        inputmode="text"
+        shape="round"
+        fill="outline"
+        [value]="inputModel"
+        (ionInput)="onInput($event)"
+        #ionInputEl>
+      </ion-input>
+      <ion-input
+        id="email-input" 
+        type="email"
+        label="E-mail" 
+        labelPlacement="floating" 
+        placeholder="Digite seu e-mail" 
+        errorText="E-mail inválido"
+        inputmode="email"
+        shape="round"
+        fill="outline">
+      </ion-input>
+      <ion-input
+        id="senha-input" 
+        type="password"
+        label="Senha" 
+        labelPlacement="floating" 
+        placeholder="Digite sua senha" 
+        errorText="Senha inválida"
+        inputmode="password"
+        shape="round"
+        fill="outline">
+      </ion-input>
+      <ion-input
+        id="confirma-input" 
+        type="password"
+        label="Confirmar senha" 
+        labelPlacement="floating" 
+        placeholder="Digite sua senha" 
+        errorText="Senhas não coincidem"
+        inputmode="password"
+        shape="round"
+        fill="outline">
+      </ion-input>
+      <ion-button id="button-entrar" [routerLink]="['/tabs/tab1']">Cadastrar conta</ion-button>
+    </div>
+  </div>
 </ion-content>
