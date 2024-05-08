@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private apiService : ApiService) {
+    this.teste();
+  }
+
+  teste() {
+    this.apiService.teste().subscribe(data =>{
+      console.log(data);
+    })
+  }
 
 }
