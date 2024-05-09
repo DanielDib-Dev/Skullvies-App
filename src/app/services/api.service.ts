@@ -11,8 +11,16 @@ export class ApiService {
 
   constructor(private http : HttpClient) { }
 
-  teste(){
+  getPopularMovies(){
     return this.http.get(`${this.baseURL}movie/popular${this.apiKey}`);
+  }
+
+  getUpComingMovies(){
+    return this.http.get(`${this.baseURL}movie/upcoming${this.apiKey}`);
+  }
+
+  getMovieDetails(movieId: number){
+    return this.http.get(`${this.baseURL}movie/${movieId}${this.apiKey}`);
   }
 
 }
