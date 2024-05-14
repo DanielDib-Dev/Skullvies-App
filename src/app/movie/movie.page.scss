@@ -1,11 +1,19 @@
-#poster{
-    width: 100%;
+.poster{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: none;
     height: 45vh;
-    flex-shrink: 0;
-    background: linear-gradient(0deg, var(--ion-background-color) 0%, rgba(0,0,0,0) 20%), 
-                url(https://ionicframework.com/docs/img/demos/card-media.png);
-    background-position: center;
-    background-size: cover;
+    width: 100%;
+    background: linear-gradient(0deg, var(--ion-background-color) 0%, rgba(0,0,0,0) 60%);
+}
+
+.poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 #filme-title{
@@ -23,10 +31,19 @@
 #filme-subtitle{
     display: flex;
     color: var(--ion-subtitle);
+    align-items: center;
 }
 
-#filme-subtitle p{
+#filme-subtitle #ano{
+
     margin: 0 10px 0 0;
+}
+
+#filme-subtitle #produtora{
+    text-align: start;
+    width: 80vw;
+    margin: 0;
+    hyphens: auto;
 }
 
 #favorito-nota{

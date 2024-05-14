@@ -27,7 +27,7 @@ export class Tab1Page {
   loadUpComingMovies() {
     this.apiService.getUpComingMovies().subscribe((data: any) =>{
       this.upcomingMovies = data.results;
-      console.log("Upcoming Movies:", this.upcomingMovies);
+      //console.log("Upcoming Movies:", this.upcomingMovies);
     })
   }
 
