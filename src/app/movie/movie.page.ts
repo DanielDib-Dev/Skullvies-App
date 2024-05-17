@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../services/api.service';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-movie',
@@ -12,10 +13,7 @@ export class MoviePage implements OnInit {
   movieDetails: any = {};
   movieCredits: any = {};
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private apiService: ApiService
-  ) {
+  constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService, private loadingService : LoadingService) {
     this.movieId = 0;
   }
 
@@ -35,10 +33,12 @@ export class MoviePage implements OnInit {
     });
   }
   
-  loadMovieCredits() {
+  async loadMovieCredits() {
+    await this.loadingService.showLoading();
     this.apiService.getMovieCredits(this.movieId).subscribe((data: any) => {
       this.movieCredits = data.cast.slice(0, 6); // Pega os seis primeiros atores do elenco
       //console.log("Movie Credits:", this.movieCredits);
+      this.loadingService.dismissLoading();
     });
   }
 

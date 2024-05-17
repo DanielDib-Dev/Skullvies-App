@@ -42,3 +42,21 @@
 :root {
     --ion-default-font: 'Arimo', sans-serif !important;
 }
+
+.loading{
+    --backdrop-opacity: 1;
+    --ion-backdrop-color: #1A1A1D;
+    --background: transparent;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.loading *{    
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+ion-spinner{
+    width: 10vh;
+    height: 10vh;
+}
