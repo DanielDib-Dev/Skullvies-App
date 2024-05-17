@@ -27,4 +27,8 @@ export class ApiService {
   getMovieCredits(movieId: number){
     return this.http.get(`${this.baseURL}movie/${movieId}/credits${this.apiKey}&language=en-US`);
   }
+
+  getMovieByQuery(query: string, page : number){
+    return this.http.get(`${this.baseURL}search/movie${this.apiKey}&query=${query}${this.languageParam}&page=${page}`);
+  }
 }

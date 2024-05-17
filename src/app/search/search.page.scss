@@ -27,3 +27,74 @@
     margin: 0 0 10px 0;
 }
 
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    --background: transparent;
+    box-shadow: none;
+    width: 29vw;
+    height: 100%;
+    min-height: 23vh;
+}
+
+.title-p{
+    color: var(--ion-text);
+    text-align: center;
+    font-size: 2.5vh;
+    margin: 0 0 1vh;
+    font-weight: 700;
+}
+
+.destaques-card{
+    justify-content: center;
+    height: 100%;
+    min-height: 23vh;
+}
+
+.card-title{
+    color: var(--ion-text);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    line-height: normal;
+}
+
+.card-title, .card-subtitle{
+    margin: 0;
+}
+
+.card-subtitle{
+    color: var(--ion-subtitle);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+.card-header{
+    padding: 0;
+}
+
+.card-img{
+    width: 100%;
+    height: 18vh;
+    border-radius: 24px;
+    object-fit: cover;
+    object-position: center;
+}
+
+ion-col{
+    display: flex;
+    padding: 1.5vw;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 23vh;
+}
+
+ion-grid{
+    padding: 0;
+    margin: 0 3.666vw 0;
+}

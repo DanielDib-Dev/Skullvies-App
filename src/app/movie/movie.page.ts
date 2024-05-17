@@ -29,7 +29,7 @@ export class MoviePage implements OnInit {
   loadMovieDetails() {
     this.apiService.getMovieDetails(this.movieId).subscribe((data: any) => {
       this.movieDetails = data;
-      console.log("Movie Details:", this.movieDetails);
+      //console.log("Movie Details:", this.movieDetails);
     });
   }
   

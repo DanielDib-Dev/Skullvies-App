@@ -7,12 +7,12 @@
 </ion-header>
 <ion-content [fullscreen]="true">
   <div class="poster">
-    <img class="poster-img" [src]="'https://image.tmdb.org/t/p/original' + movieDetails.backdrop_path" alt="Backdrop" />
+    <img class="poster-img" [src]="movieDetails.backdrop_path ? ('https://image.tmdb.org/t/p/original' + movieDetails.backdrop_path) : '../../assets/filmeexemplo.png'" alt="Backdrop" />
   </div>
   <div id="filme-title">
-    <h1>{{ movieDetails.title }}</h1>
+    <h1>{{ movieDetails.title ? movieDetails.title : 'N/A' }}</h1>
     <div id="filme-subtitle">
-      <p id="ano">{{ movieDetails.release_date | date:'yyyy' }}</p>
+      <p id="ano">{{ movieDetails.release_date ? (movieDetails.release_date | date:'yyyy') : 'N/A' }}</p>
       <p id="produtora">{{ getProductionCompanies() }}</p>
     </div>
   </div>
@@ -27,18 +27,18 @@
     </div>
   </div>
   <p id="descricao">
-    {{ movieDetails.overview }}
+    {{ movieDetails.overview ? movieDetails.overview : 'Sem sinopse disponível.' }}
   </p>
   <ion-grid id="elenco" *ngIf="movieCredits.length > 0">
     <ion-row>
       <ion-col size="6" *ngFor="let actor of movieCredits">
         <div class="elenco">
           <ion-avatar>
-            <img [src]="'https://image.tmdb.org/t/p/w185' + actor.profile_path" alt="Foto do Ator" />
+            <img [src]="actor.profile_path ? ('https://image.tmdb.org/t/p/w185' + actor.profile_path) : '../../assets/usericon.png'" alt="Foto do Ator" />
           </ion-avatar>
           <div class="elenco-info">
-            <p class="elenco-ator">{{ actor.name }}</p>
-            <p class="elenco-personagem">{{ actor.character }}</p>
+            <p class="elenco-ator">{{ actor.name ? actor.name : 'N/A' }}</p>
+            <p class="elenco-personagem">{{ actor.character ? actor.character : 'N/A' }}</p>
           </div>
         </div>
       </ion-col>

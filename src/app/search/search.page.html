@@ -7,9 +7,25 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <ion-searchbar class="ion-margin" id="pesquisa" search-icon="search" placeholder="Digite o nome do filme"></ion-searchbar>
-  <div id="sem-resultado">
+  <ion-searchbar [(ngModel)]="query" (ngModelChange)="loadMovieByQuery()" class="ion-margin" id="pesquisa" search-icon="search" placeholder="Digite o nome do filme"></ion-searchbar>
+  <div *ngIf="movieByQuery.length < 1" id="sem-resultado">
     <p>Sem resultados...</p>
     <ion-icon name="sad-outline"></ion-icon>
   </div>
+  <ion-grid *ngIf="movieByQuery.length > 0" id="destaques">
+    <ion-row>
+      <ion-col size="4" [routerLink]="['/movie', movie.id]" *ngFor="let movie of movieByQuery" class="destaques-card">
+        <ion-card class="card">
+          <img class="card-img" alt="Filme exemplo" [src]="movie.poster_path ? 'https://image.tmdb.org/t/p/w500' + movie.poster_path : '../../assets/filmeexemplo.png'" alt="Backdrop" />
+          <ion-card-header class="card-header">
+            <ion-card-title class="card-title">{{ movie.title ? movie.title : 'N/A' }}</ion-card-title>
+            <ion-card-subtitle class="card-subtitle">{{ movie.release_date ? (movie.release_date | date:'yyyy') : 'N/A' }}</ion-card-subtitle>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll (ionInfinite)="loadMoreMovies($event)">
+    <ion-infinite-scroll-content loadingText="Carregando mais filmes..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
