@@ -10,15 +10,9 @@ export class LoadingService {
 
   async showLoading() {
     const loading = await this.loadingCtrl.create({
-      cssClass: 'loading'
+      cssClass: 'loading',
+      duration: 1000,
     });
     await loading.present();
-  }
-
-  async dismissLoading() {
-    const loading = await this.loadingCtrl.getTop();
-    if (loading) {
-      await loading.dismiss();
-    }
   }
 }

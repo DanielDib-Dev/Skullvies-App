@@ -38,7 +38,6 @@ export class MoviePage implements OnInit {
     this.apiService.getMovieCredits(this.movieId).subscribe((data: any) => {
       this.movieCredits = data.cast.slice(0, 6); // Pega os seis primeiros atores do elenco
       //console.log("Movie Credits:", this.movieCredits);
-      this.loadingService.dismissLoading();
     });
   }
 

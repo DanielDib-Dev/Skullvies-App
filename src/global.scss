@@ -51,6 +51,10 @@
     box-shadow: none !important;
 }
 
+.dark .loading{
+    --ion-backdrop-color: #EEEEEE;
+}
+
 .loading *{    
     -webkit-box-shadow: none !important;
     box-shadow: none !important;

@@ -23,7 +23,6 @@ export class Tab1Page {
     this.apiService.getPopularMovies().subscribe((data: any) => {
       this.popularMovies = data.results;
       //console.log("Popular Movies:", this.popularMovies);
-      this.loadingService.dismissLoading();
     });
   } 
   
