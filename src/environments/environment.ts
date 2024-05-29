@@ -9,14 +9,14 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "your-api-key",
-  authDomain: "your-auth-domain",
-  databaseURL: "your-database-url",
-  projectId: "your-project-id",
-  storageBucket: "your-storage-bucket",
-  messagingSenderId: "your-messaging-sender-id",
-  appId: "your-app-id",
-  measurementId: "your-measurement-id"
+  apiKey: "AIzaSyAulXmqlQSZSolQerrAPAUD42PXvgXUdtQ",
+  authDomain: "skullvies.firebaseapp.com",
+  databaseURL: "https://skullvies-default-rtdb.firebaseio.com",
+  projectId: "skullvies",
+  storageBucket: "skullvies.appspot.com",
+  messagingSenderId: "14964010249",
+  appId: "1:14964010249:web:36be275201f368603677d8",
+  measurementId: "G-51M3LNNE97"
 };
 
 // Initialize Firebase
