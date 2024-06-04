@@ -18,7 +18,7 @@ export class Tab3Page {
 
   async checkAppMode() {
     const checkIsDarkMode = await Preferences.get({key: 'darkModeActivated'});
-    console.log(checkIsDarkMode);
+    //console.log(checkIsDarkMode);
     checkIsDarkMode?.value == 'true'
       ? (this.darkMode = true)
       : (this.darkMode = false);
