@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import type { IonInput } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -7,10 +8,17 @@ import type { IonInput } from '@ionic/angular';
   styleUrls: ['./cadastro.page.scss'],
 })
 export class CadastroPage implements OnInit {
+  displayName: string ='';
+  email: string ='';
+  password: string='';
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+  }
+
+  register() {
+    this.authService.register(this.displayName, this.email, this.password);
   }
 
   inputModel = '';

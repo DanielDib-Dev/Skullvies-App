@@ -13,6 +13,7 @@
     <h3>Cadastre-se</h3>
     <div id="inputs">
       <ion-input
+        [(ngModel)]="displayName"
         id="nome-input" 
         label="Nome" 
         labelPlacement="floating" 
@@ -26,6 +27,7 @@
         #ionInputEl>
       </ion-input>
       <ion-input
+        [(ngModel)]="email"
         id="email-input" 
         type="email"
         label="E-mail" 
@@ -34,9 +36,11 @@
         errorText="E-mail inválido"
         inputmode="email"
         shape="round"
-        fill="outline">
+        fill="outline"
+        email>
       </ion-input>
       <ion-input
+        [(ngModel)]="password"
         id="senha-input" 
         type="password"
         label="Senha" 
@@ -58,7 +62,7 @@
         shape="round"
         fill="outline">
       </ion-input>
-      <ion-button id="button-entrar" [routerLink]="['/tabs']">Cadastrar conta</ion-button>
+      <ion-button id="button-entrar" (click)="register()">Cadastrar conta</ion-button>
     </div>
   </div>
 </ion-content>
