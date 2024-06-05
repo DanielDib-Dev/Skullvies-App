@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,13 +8,20 @@ import { Preferences } from '@capacitor/preferences';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-
+  displayName: string = '';
   darkMode = false;
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.checkAppMode();
+  }
+
+  ionViewDidEnter() {
+    // Obtém as informações do usuário do serviço de autenticação
+    this.authService.getCurrentUserDisplayName().then(displayName => {
+      this.displayName = displayName;
+  });
   }
 
   async checkAppMode() {
@@ -34,6 +42,10 @@ export class Tab3Page {
     } else {
       Preferences.set({key: 'darkModeActivated', value: 'false'});
     }
+  }
+
+  signOut() {
+    this.authService.signOut();
   }
 
 }

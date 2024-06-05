@@ -4,7 +4,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
 import { ToastController } from '@ionic/angular';
-import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -142,5 +141,34 @@ export class AuthService {
   // Método para sair do usuário
   async signOut() {
     await this.afAuth.signOut();
+    this.router.navigate(['']);
   }
+
+  // Método para obter o displayName do usuário atual
+  async getCurrentUserDisplayName() {
+    const user = firebase.auth().currentUser;
+    
+    if (!user) {
+        return '';
+    }
+
+    const uid = user.uid;
+
+    const userDoc = await this.firestore.collection('users').doc(uid).get().toPromise();
+    
+    if (userDoc && userDoc.exists) {
+        const userData = userDoc.data() as { displayName: string };
+        return userData.displayName;
+    } else {
+        return '';
+    }
 }
+
+
+
+
+
+
+}
+
+  
