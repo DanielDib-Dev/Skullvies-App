@@ -10,7 +10,11 @@ import { ToastController } from '@ionic/angular';
 })
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth, private router: Router, private toastController: ToastController, private firestore: AngularFirestore) { }
+  constructor(public afAuth: AngularFireAuth, private router: Router, private toastController: ToastController, public firestore: AngularFirestore) { }
+
+  get firestoreInstance() {
+    return this.firestore;
+  }
 
   // Método para criar um novo usuário
   async register(displayName: string, email: string, password: string) {
@@ -144,6 +148,19 @@ export class AuthService {
     this.router.navigate(['']);
   }
 
+  //Método para obter o uid do usuário atual
+  async getCurrentUserUID() {
+    const user = firebase.auth().currentUser;
+    
+    if (!user) {
+      return '';
+    } else {
+      const uid = user.uid;
+      return uid;
+    }
+  }
+  
+
   // Método para obter o displayName do usuário atual
   async getCurrentUserDisplayName() {
     const user = firebase.auth().currentUser;
@@ -162,13 +179,32 @@ export class AuthService {
     } else {
         return '';
     }
-}
+  }
 
-
-
-
-
-
+  async getFavoriteMovies(): Promise<number[]> {
+    await new Promise(resolve => setTimeout(resolve, 1000)); // Adiciona um atraso de 1 segundo
+    const uid = await this.getCurrentUserUID();
+    if (!uid) {
+      console.error('Usuário não autenticado');
+      return [];
+    }
+    const userDoc = await this.firestoreInstance.collection('users').doc(uid).get().toPromise();
+    if (userDoc && userDoc.exists) {
+      const userData: any = userDoc.data(); // Especifica o tipo como 'any'
+      if (userData && Array.isArray(userData.favoriteMovies)) {
+        return userData.favoriteMovies;
+      } else {
+        console.error('Dados do usuário não encontrados ou formato inválido');
+        return [];
+      }
+    } else {
+      console.error('Documento do usuário não encontrado');
+      return [];
+    }
+  }
+  
+  
+  
 }
 
   

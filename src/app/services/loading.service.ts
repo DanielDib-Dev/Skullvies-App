@@ -15,4 +15,12 @@ export class LoadingService {
     });
     await loading.present();
   }
+
+  async showLoading3s() {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'loading',
+      duration: 1000,
+    });
+    await loading.present();
+  }
 }

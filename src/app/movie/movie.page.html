@@ -17,12 +17,12 @@
     </div>
   </div>
   <div id="favorito-nota">
-    <div id="favorito">
-      <p>Adicionar à sua lista</p>
-      <ion-icon color="primary" name="heart-outline"></ion-icon>
+    <div id="favorito" (click)="toggleFavorite()">
+      <p>{{ isFavorite ? 'Adicionado à lista' : 'Adicionar à sua lista' }}</p>
+      <ion-icon color="primary" [name]="isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
     </div>
     <div id="nota">
-        <!-- Exibição das estrelas de acordo com a nota do filme -->
+      <p>{{ (movieDetails.vote_average / 2) | number:'1.1-1' }}</p>
       <ion-icon *ngFor="let star of [1, 2, 3, 4, 5]" [name]="star <= movieDetails.vote_average / 2 ? 'star' : 'star-outline'"></ion-icon>
     </div>
   </div>

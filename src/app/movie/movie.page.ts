@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import { LoadingService } from '../services/loading.service';
+import { AuthService } from '../services/auth.service';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore'; // Adicione esta linha
 
 @Component({
   selector: 'app-movie',
@@ -12,8 +15,9 @@ export class MoviePage implements OnInit {
   movieId: number;
   movieDetails: any = {};
   movieCredits: any = {};
+  isFavorite: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService, private loadingService : LoadingService) {
+  constructor(private activatedRoute: ActivatedRoute, private apiService: ApiService, private loadingService : LoadingService, private authService: AuthService) {
     this.movieId = 0;
   }
 
@@ -22,9 +26,33 @@ export class MoviePage implements OnInit {
       this.movieId = +params['id'];
       this.loadMovieDetails();
       this.loadMovieCredits();
+      this.checkIfFavorite();
     });
   }
+
+  async checkIfFavorite() {
+    // Obter o UID do usuário
+    const uid = await this.authService.getCurrentUserUID();
+    if (!uid) {
+      console.error('Usuário não autenticado');
+      return;
+    }
   
+    // Referência ao documento do usuário no Firestore
+    const userDocRef = this.authService.firestoreInstance.collection('users').doc(uid);
+    const userDoc = await userDocRef.get().toPromise();
+    
+    if (userDoc && userDoc.exists) {
+      const userData: { favoriteMovies?: number[] } = userDoc.data() || {};
+      if (userData && userData.favoriteMovies && userData.favoriteMovies.includes(this.movieId)) {
+        this.isFavorite = true;
+      } else {
+        this.isFavorite = false;
+      }
+    } else {
+      this.isFavorite = false;
+    }
+  }
 
   loadMovieDetails() {
     this.apiService.getMovieDetails(this.movieId).subscribe((data: any) => {
@@ -48,4 +76,32 @@ export class MoviePage implements OnInit {
       return '';
     }
   }
+
+  // Adicione este método para alternar o status de favorito
+  async toggleFavorite() {
+    this.isFavorite = !this.isFavorite;
+
+    // Obter o UID do usuário
+    const uid = await this.authService.getCurrentUserUID();
+    if (!uid) {
+      console.error('Usuário não autenticado');
+      return;
+    }
+
+    // Referência ao documento do usuário no Firestore
+    const userDocRef = this.authService.firestoreInstance.collection('users').doc(uid);
+
+    if (this.isFavorite) {
+      // Adicionar o ID do filme aos favoritos do usuário
+      await userDocRef.update({
+        favoriteMovies: firebase.firestore.FieldValue.arrayUnion(this.movieId)
+      });
+    } else {
+      // Remover o ID do filme dos favoritos do usuário
+      await userDocRef.update({
+        favoriteMovies: firebase.firestore.FieldValue.arrayRemove(this.movieId)
+      });
+    }
+  }
+
 }
