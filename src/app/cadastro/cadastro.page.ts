@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import type { IonInput } from '@ionic/angular';
+import { IonInput } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
+import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-cadastro',
@@ -8,34 +11,42 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./cadastro.page.scss'],
 })
 export class CadastroPage implements OnInit {
-  displayName: string ='';
-  email: string ='';
-  password: string='';
+  registerForm: FormGroup;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private formBuilder: FormBuilder, private toastController: ToastController) {
+    this.registerForm = this.formBuilder.group({
+      displayName: ['', [Validators.required, Validators.minLength(6), this.alphabeticValidator]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
 
   ngOnInit() {
   }
 
-  register() {
-    this.authService.register(this.displayName, this.email, this.password);
+  async register() {
+    if (this.registerForm.valid) {
+      const displayName = this.registerForm.get('displayName')?.value;
+      const email = this.registerForm.get('email')?.value;
+      const password = this.registerForm.get('password')?.value;
+      this.authService.register(displayName, email, password);
+    } else {
+      const toast = await this.toastController.create({
+        message: 'Preencha todos os campos corretamente.',
+        duration: 3000,
+        icon: "alert-circle",
+        color: "primary",
+        keyboardClose: true,
+        position: "bottom",
+      });
+      await toast.present();
+    }
   }
 
-  inputModel = '';
-
-  @ViewChild('ionInputEl', { static: true }) ionInputEl!: IonInput;
-
-  onInput(ev: { target: any; }) {
-    const value = ev.target!.value;
-
-    // Removes non alphanumeric characters
-    const filteredValue = value.replace(/[^a-zA-Z\s]+/g, '');
-
-    /**
-     * Update both the state variable and
-     * the component to keep them in sync.
-     */
-    this.ionInputEl.value = this.inputModel = filteredValue;
+  alphabeticValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    const valid = /^[a-zA-Z\s]+$/.test(value);
+    return valid ? null : { alphabetic: true };
   }
-
 }

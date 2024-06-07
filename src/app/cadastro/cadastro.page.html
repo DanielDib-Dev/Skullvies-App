@@ -1,10 +1,3 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button color="tertiary"></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
 <ion-content [fullscreen]="true">
   <div id="login">
     <div id="logo">
@@ -12,57 +5,58 @@
     </div>
     <h3>Cadastre-se</h3>
     <div id="inputs">
-      <ion-input
-        [(ngModel)]="displayName"
-        id="nome-input" 
-        label="Nome" 
-        labelPlacement="floating" 
-        placeholder="Digite seu nome" 
-        errorText="Nome inválido"
-        inputmode="text"
-        shape="round"
-        fill="outline"
-        [value]="inputModel"
-        (ionInput)="onInput($event)"
-        #ionInputEl>
-      </ion-input>
-      <ion-input
-        [(ngModel)]="email"
-        id="email-input" 
-        type="email"
-        label="E-mail" 
-        labelPlacement="floating" 
-        placeholder="Digite seu e-mail" 
-        errorText="E-mail inválido"
-        inputmode="email"
-        shape="round"
-        fill="outline"
-        email>
-      </ion-input>
-      <ion-input
-        [(ngModel)]="password"
-        id="senha-input" 
-        type="password"
-        label="Senha" 
-        labelPlacement="floating" 
-        placeholder="Digite sua senha" 
-        errorText="Senha inválida"
-        inputmode="password"
-        shape="round"
-        fill="outline">
-      </ion-input>
-      <ion-input
-        id="confirma-input" 
-        type="password"
-        label="Confirmar senha" 
-        labelPlacement="floating" 
-        placeholder="Digite sua senha" 
-        errorText="Senhas não coincidem"
-        inputmode="password"
-        shape="round"
-        fill="outline">
-      </ion-input>
-      <ion-button id="button-entrar" (click)="register()">Cadastrar conta</ion-button>
+      <form [formGroup]="registerForm">
+        <ion-input
+          formControlName="displayName"
+          id="nome-input" 
+          label="Nome" 
+          labelPlacement="floating" 
+          placeholder="Digite seu nome" 
+          errorText="Nome deve ter no mínimo 6 caractéres alfabéticos"
+          inputmode="text"
+          shape="round"
+          fill="outline"
+          #ionInputEl>
+        </ion-input>
+        <ion-input
+          formControlName="email"
+          id="email-input" 
+          type="email"
+          label="E-mail" 
+          labelPlacement="floating" 
+          placeholder="Digite seu e-mail" 
+          errorText="E-mail deve ser válido"
+          inputmode="email"
+          shape="round"
+          fill="outline"
+          email>
+        </ion-input>
+        <ion-input
+          formControlName="password"
+          id="senha-input" 
+          type="password"
+          label="Senha" 
+          labelPlacement="floating" 
+          placeholder="Digite sua senha" 
+          errorText="Senha deve ter no mínimo 6 caractéres"
+          inputmode="password"
+          shape="round"
+          fill="outline">
+        </ion-input>
+        <ion-input
+          formControlName="confirmPassword"
+          id="confirma-input" 
+          type="password"
+          label="Confirmar senha" 
+          labelPlacement="floating" 
+          placeholder="Digite sua senha" 
+          errorText="Senhas devem ser iguais"
+          inputmode="password"
+          shape="round"
+          fill="outline">
+        </ion-input>
+        <ion-button id="button-entrar" (click)="register()">Cadastrar conta</ion-button>
+      </form>
     </div>
   </div>
 </ion-content>
