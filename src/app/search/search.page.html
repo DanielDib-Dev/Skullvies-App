@@ -10,7 +10,7 @@
   <ion-searchbar [(ngModel)]="query" (ngModelChange)="loadMovieByQuery()" class="ion-margin" id="pesquisa" search-icon="search" placeholder="Digite o nome do filme"></ion-searchbar>
   <div *ngIf="movieByQuery.length < 1" id="sem-resultado">
     <p>Sem resultados...</p>
-    <ion-icon name="sad-outline"></ion-icon>
+    <img id="sem-resultado-img" src="../../assets/logo-sad.png">
   </div>
   <ion-grid *ngIf="movieByQuery.length > 0" id="destaques">
     <ion-row>

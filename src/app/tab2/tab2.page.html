@@ -9,6 +9,10 @@
     </svg>
   </div>
   <h1>Seus Favoritos</h1>
+  <div *ngIf="favoriteMovies.length < 1" id="no-favorite">
+    <p id="no-favorite-p">Você ainda não possui filmes em sua lista, adicione alguns e volte aqui</p>
+    <img id="no-favorite-img" src="../../assets/logo-sad.png">
+  </div>
   <ion-grid id="destaques">
     <ion-row>
       <ion-col size="4" [routerLink]="['/movie', movie.id]" *ngFor="let movie of favoriteMovies" class="destaques-card">

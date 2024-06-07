@@ -18,7 +18,7 @@ export class CadastroPage implements OnInit {
       displayName: ['', [Validators.required, Validators.minLength(6), this.alphabeticValidator]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
+      confirmPassword: ['', [Validators.required, Validators.minLength(6), this.passwordMatchValidator.bind(this)]]
     });
   }
 
@@ -48,5 +48,14 @@ export class CadastroPage implements OnInit {
     const value = control.value;
     const valid = /^[a-zA-Z\s]+$/.test(value);
     return valid ? null : { alphabetic: true };
+  }
+
+  passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
+    if (!this.registerForm) {
+      return null;
+    }
+    const password = this.registerForm.get('password')?.value;
+    const confirmPassword = control.value;
+    return password === confirmPassword ? null : { passwordMismatch: true };
   }
 }

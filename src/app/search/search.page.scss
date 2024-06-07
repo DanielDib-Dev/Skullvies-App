@@ -98,3 +98,9 @@ ion-grid{
     padding: 0;
     margin: 0 3.666vw 0;
 }
+
+#sem-resultado-img{
+    width: 20vh;
+    height: auto;
+    filter: var(--logo-light-mode) !important;
+}

@@ -89,3 +89,26 @@ ion-grid{
     padding: 0;
     margin: 0 3.666vw 0;
 }
+
+#no-favorite{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+#no-favorite-p{
+    text-align: center;
+    margin: 15px;
+}
+
+#no-favorite-img{
+    width: 20vh;
+    height: auto;
+    filter: var(--logo-light-mode) !important;
+}
