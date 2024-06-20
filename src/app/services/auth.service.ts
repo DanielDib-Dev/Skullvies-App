@@ -47,16 +47,18 @@ export class AuthService {
       this.router.navigate(['login']);
       // Retorna o resultado da criação do usuário
       return userCredential;
-    } catch (error) {
-      const toast = await this.toastController.create({
-        message: 'Insira os dados corretamente',
-        duration: 3000,
-        icon: "lock-closed",
-        color: "primary",
-        keyboardClose: true,
-        position: "bottom",
-      });
-      await toast.present();
+    } catch (error: any) {
+        if (error.code === 'auth/email-already-in-use') {
+          const toast = await this.toastController.create({
+            message: 'E-mail já está em uso.',
+            duration: 3000,
+            icon: "alert-circle",
+            color: "primary",
+            keyboardClose: true,
+            position: "bottom",
+          });
+          await toast.present();
+        }
       throw error;
     }
   }
